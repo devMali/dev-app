@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 export default function MyForm(props) {
 
     const [text,setText] = useState("");
-
     const upText = () => 
     {
         let newText=text.toUpperCase();
@@ -21,6 +20,19 @@ export default function MyForm(props) {
         setText(newText);
     }
 
+    const removeSpaceText = () => 
+    {
+        let newText=text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
+
+    const copyText = () => 
+    {
+        let newText=document.getElementById("myBox");
+        newText.select();
+        navigator.clipboard.writeText(newText.value);
+    }
+
     const handleOnChange = (event) =>
     {
         setText(event.target.value);
@@ -30,12 +42,14 @@ export default function MyForm(props) {
 <>
     <div>
         <h1>{props.heading}</h1>
-        <div className="mb-3">
-        <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{resize:"none"}} > </textarea>
+        <div className="mb-3" >
+        <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{resize:"none"}} required> </textarea>
         </div>
         <button className="btn btn-primary mx-3" onClick={upText} >Convert to UpperCase   </button>
         <button className="btn btn-primary mx-3" onClick={loText} >Convert to LowerCase   </button>
-        <button className="btn btn-primary" onClick={clearText} >Clear Textarea </button>
+        <button className="btn btn-primary mx-3" onClick={clearText} >Clear Textarea </button>
+        <button className="btn btn-primary mx-3" onClick={removeSpaceText} >Remove space </button>
+        <button className="btn btn-primary mx-3" onClick={copyText} >Copy Text </button>
     </div>
     <div className='container my-3'>
         <h2>Your Text Summary</h2>
