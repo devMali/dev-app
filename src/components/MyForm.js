@@ -45,16 +45,16 @@ export default function MyForm(props) {
         <div className="mb-3" >
         <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{resize:"none"}} required> </textarea>
         </div>
-        <button className="btn btn-primary mx-3" onClick={upText} >Convert to UpperCase   </button>
-        <button className="btn btn-primary mx-3" onClick={loText} >Convert to LowerCase   </button>
-        <button className="btn btn-primary mx-3" onClick={clearText} >Clear Textarea </button>
-        <button className="btn btn-primary mx-3" onClick={removeSpaceText} >Remove space </button>
-        <button className="btn btn-primary mx-3" onClick={copyText} >Copy Text </button>
+        <button className="btn btn-primary mx-3 my-2 " onClick={upText} >Convert to UpperCase   </button>
+        <button className="btn btn-primary mx-3 my-2 " onClick={loText} >Convert to LowerCase   </button>
+        <button className="btn btn-primary mx-3 my-2 " onClick={clearText} >Clear Textarea </button>
+        <button className="btn btn-primary mx-3 my-2 " onClick={removeSpaceText} >Remove space </button>
+        <button className="btn btn-primary mx-3 my-2 " onClick={copyText} >Copy Text </button>
     </div>
     <div className='container my-3'>
         <h2>Your Text Summary</h2>
 
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>{text.split(" ").filter((element) => {return element.length !== 0}).length} words and {text.length} characters</p>
     </div>
     </>
   )

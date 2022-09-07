@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar';
+//import Navbar from './components/Navbar';
 import MyForm from './components/MyForm';
 //import About from './components/About';
 /*import {
@@ -9,12 +9,22 @@ import MyForm from './components/MyForm';
   Route,
 } from "react-router-dom";  */
 
+const mystyle=
+{
+  backgroundColor:"black",
+  color:"white",
+  textAlign:"center",
+  padding:"20px",
+  fontFamily:"cursive"
+};
+
 function App() {
   
   return (
     <>
-          <Navbar title="DevProject"/>
+          <h1 style={mystyle}>Dev Text-Edit Project </h1>
           <div className="container">
+            <br/>
           <MyForm heading="Enter Text to do Different Operations"/>
           </div>
           
